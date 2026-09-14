@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IFIT - Biological Age Calculator</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <style>
+    
+    @font-face {
+      font-family: popin;
+      src: url(Poppins-Medium.ttf);
+    } @font-face {
+      font-family: popin2;
+      src: url(Poppins-Bold.ttf);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'popin';
+    }
+
+    body {
+      background-color: #111;
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    nav h1 {
+      color: #a8df01;
+      font-size: 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #a8df01;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #a8df01;
+      color: #111;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    section {
+      background-color: #1e1e1e;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #a8df01;
+      font-size: 2rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #2c2c2c;
+      border: none;
+      border-radius: 8px;
+      color: #eee;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #a8df01;
+      color: #111;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #fff;
+      color: #a8df01;
+    }
+
+    .result {
+      margin-top: 2rem;
+      background-color: #2b2b2b;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      display: none;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .progress-container {
+      background-color: #333;
+      width: 100%;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: #a8df01;
+      transition: width 1s ease;
+    }
+
+    .tip {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #eee;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1><a style=" text-decoration: none;color:#a8df01;" href="web1.html">IFIT</a></h1>
+        <ul>
+            <li><a style="font-family: popin;" href="http://127.0.0.1:5000">Meals Generator & Calories Calculator</a></li>
+            <li><a style="font-family: popin;" href="#">Exercises</a></li>
+            <li><a style="font-family: popin;" href="http://127.0.0.1:5002">AI Exercise Form Correction</a></li>
+            <li><a style="font-family: popin;" href="BioAge.html">Biological Age</a></li>
+          </ul>
+        </nav>
+
+  <div class="container">
+    <section>
+      <h2>🧬 Biological Age Calculator</h2>
+
+      <input type="number" id="age" placeholder="Your Real Age" required>
+      <input type="number" id="weight" placeholder="Weight (kg)" required>
+      <input type="number" id="height" placeholder="Height (cm)" required>
+      <input type="number" id="fat" placeholder="Body Fat % (optional)">
+      
+      <select id="sleep" required>
+        <option value="">How many hours do you sleep?</option>
+        <option value="5">Less than 6 hours</option>
+        <option value="6">6-7 hours</option>
+        <option value="7">7-8 hours</option>
+        <option value="8">8-9 hours</option>
+        <option value="9">9+ hours</option>
+      </select>
+
+      <select id="workouts" required>
+        <option value="">How many workouts per week?</option>
+        <option value="0">None</option>
+        <option value="2">2-3 times</option>
+        <option value="4">4-5 times</option>
+        <option value="6">6+ times</option>
+      </select>
+
+      <select id="smoke" required>
+        <option value="">Do you smoke?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <select id="stress" required>
+        <option value="">Your stress level?</option>
+        <option value="3">High</option>
+        <option value="1.5">Moderate</option>
+        <option value="0">Low</option>
+      </select>
+
+      <input type="number" id="bloodPressure" placeholder="Systolic Blood Pressure (optional)">
+      <input type="number" id="restingHeartRate" placeholder="Resting Heart Rate (bpm, optional)">
+
+      <button id="calculateBtn">Calculate</button>
+
+      <div class="result" id="result">
+        <div id="ageText"></div>
+        <div class="progress-container">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div class="tip" id="tipText"></div>
+      </div>
+
+    </section>
+  </div>
+
+  <script>
+    document.querySelector('#calculateBtn').addEventListener('click', function () {
+      const age = parseFloat(document.querySelector('#age').value);
+      const weight = parseFloat(document.querySelector('#weight').value);
+      const height = parseFloat(document.querySelector('#height').value);
+      const fat = parseFloat(document.querySelector('#fat').value) || 20;
+      const sleep = parseFloat(document.querySelector('#sleep').value);
+      const workouts = parseFloat(document.querySelector('#workouts').value);
+      const smoke = parseInt(document.querySelector('#smoke').value);
+      const stress = parseFloat(document.querySelector('#stress').value);
+      const bloodPressure = parseFloat(document.querySelector('#bloodPressure').value) || 120;
+      const restingHeartRate = parseFloat(document.querySelector('#restingHeartRate').value) || 70;
+
+      if (!age || !weight || !height || sleep === '' || workouts === '' || smoke === '' || stress === '') {
+        alert("Please fill out all required fields.");
+        return;
+      }
+
+      let bioAge = age;
+
+      // Improve
+      bioAge -= (workouts * 0.8);
+      bioAge -= (sleep >= 7 ? 2 : (sleep >= 6 ? 1 : 0));
+      if (fat < 20) bioAge -= 1.5;
+      if (restingHeartRate < 65) bioAge -= 1;
+      if (bloodPressure < 120) bioAge -= 1;
+
+      // Risks
+      bioAge += (smoke * 5);
+      bioAge += stress;
+      if (fat > 25) bioAge += 1;
+      if (restingHeartRate > 80) bioAge += 1;
+      if (bloodPressure > 130) bioAge += 1.5;
+
+      if (bioAge < age - 10) bioAge = age - 10;
+      if (bioAge > age + 15) bioAge = age + 15;
+
+      const resultDiv = document.querySelector('#result');
+      const ageText = document.querySelector('#ageText');
+      const tipText = document.querySelector('#tipText');
+      const progressBar = document.querySelector('#progressBar');
+
+      resultDiv.style.display = 'block';
+      ageText.textContent = `🎯 Your Biological Age is ${Math.round(bioAge)} years`;
+
+      const progress = Math.min(100, Math.max(0, (bioAge / age) * 100));
+      progressBar.style.width = progress + '%';
+
+      if (bioAge < age) {
+        tipText.textContent = "🔥 You're biologically younger than your real age! Keep it up!";
+      } else if (bioAge === age) {
+        tipText.textContent = "✅ You're on track. Stay consistent!";
+      } else {
+        tipText.textContent = "⚠️ You need improvements! Focus on sleep, fitness, and stress management.";
+      }
+
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>

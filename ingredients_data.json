@@ -1,0 +1,210 @@
+[
+  {
+    "name": "Oats",
+    "calories_per_100g": 389,
+    "protein": 16.9,
+    "carbs": 66.3,
+    "fats": 6.9,
+    "type": "breakfast"
+  },
+  {
+    "name": "Skimmed Milk",
+    "calories_per_100g": 35,
+    "protein": 3.4,
+    "carbs": 5,
+    "fats": 0.1,
+    "type": "breakfast"
+  },
+  {
+    "name": "Whole Egg",
+    "calories_per_100g": 143,
+    "protein": 13,
+    "carbs": 1.1,
+    "fats": 9.5,
+    "type": "breakfast"
+  },
+  {
+    "name": "Peanut Butter",
+    "calories_per_100g": 588,
+    "protein": 25,
+    "carbs": 20,
+    "fats": 50,
+    "type": "breakfast"
+  },
+  {
+    "name": "Brown Bread",
+    "calories_per_100g": 247,
+    "protein": 9,
+    "carbs": 41,
+    "fats": 3.4,
+    "type": "breakfast"
+  },
+  {
+    "name": "Boiled Egg",
+    "calories_per_100g": 155,
+    "protein": 13,
+    "carbs": 1.1,
+    "fats": 11,
+    "type": "breakfast"
+  },
+  {
+    "name": "Chicken Breast",
+    "calories_per_100g": 165,
+    "protein": 31,
+    "carbs": 0,
+    "fats": 3.6,
+    "type": "lunch"
+  },
+  {
+    "name": "Brown Rice",
+    "calories_per_100g": 111,
+    "protein": 2.6,
+    "carbs": 23,
+    "fats": 0.9,
+    "type": "lunch"
+  },
+  {
+    "name": "Broccoli",
+    "calories_per_100g": 34,
+    "protein": 2.8,
+    "carbs": 6.6,
+    "fats": 0.4,
+    "type": "lunch"
+  },
+  {
+    "name": "Olive Oil",
+    "calories_per_100g": 884,
+    "protein": 0,
+    "carbs": 0,
+    "fats": 100,
+    "type": "lunch"
+  },
+  {
+    "name": "Beef Steak",
+    "calories_per_100g": 250,
+    "protein": 26,
+    "carbs": 0,
+    "fats": 17,
+    "type": "lunch"
+  },
+  {
+    "name": "Tuna (canned in water)",
+    "calories_per_100g": 116,
+    "protein": 26,
+    "carbs": 0,
+    "fats": 1,
+    "type": "dinner"
+  },
+  {
+    "name": "Greek Yogurt (low fat)",
+    "calories_per_100g": 59,
+    "protein": 10,
+    "carbs": 3.6,
+    "fats": 0.4,
+    "type": "dinner"
+  },
+  {
+    "name": "Cucumber",
+    "calories_per_100g": 15,
+    "protein": 0.6,
+    "carbs": 3.6,
+    "fats": 0.1,
+    "type": "dinner"
+  },
+  {
+    "name": "Tomato",
+    "calories_per_100g": 18,
+    "protein": 0.9,
+    "carbs": 3.9,
+    "fats": 0.2,
+    "type": "dinner"
+  },
+  {
+    "name": "Lettuce",
+    "calories_per_100g": 15,
+    "protein": 1.4,
+    "carbs": 2.9,
+    "fats": 0.2,
+    "type": "dinner"
+  },
+  {
+    "name": "Hummus",
+    "calories_per_100g": 166,
+    "protein": 8,
+    "carbs": 14.3,
+    "fats": 9.6,
+    "type": "dinner"
+  },
+  {
+    "name": "Lentils (boiled)",
+    "calories_per_100g": 116,
+    "protein": 9,
+    "carbs": 20,
+    "fats": 0.4,
+    "type": "lunch"
+  },
+  {
+    "name": "Fava Beans (foul)",
+    "calories_per_100g": 110,
+    "protein": 8,
+    "carbs": 19,
+    "fats": 0.5,
+    "type": "breakfast"
+  },
+  {
+    "name": "Banana",
+    "calories_per_100g": 89,
+    "protein": 1.1,
+    "carbs": 23,
+    "fats": 0.3,
+    "type": "snack"
+  },
+  {
+    "name": "Apple",
+    "calories_per_100g": 52,
+    "protein": 0.3,
+    "carbs": 14,
+    "fats": 0.2,
+    "type": "snack"
+  },
+  {
+    "name": "Almonds",
+    "calories_per_100g": 579,
+    "protein": 21,
+    "carbs": 22,
+    "fats": 50,
+    "type": "snack"
+  },
+  {
+    "name": "Sweet Potato",
+    "calories_per_100g": 86,
+    "protein": 1.6,
+    "carbs": 20,
+    "fats": 0.1,
+    "type": "lunch"
+  },
+  {
+    "name": "Avocado",
+    "calories_per_100g": 160,
+    "protein": 2,
+    "carbs": 9,
+    "fats": 15,
+    "type": "dinner"
+  },
+  {
+    "name": "Cheddar Cheese",
+    "calories_per_100g": 403,
+    "protein": 25,
+    "carbs": 1.3,
+    "fats": 33,
+    "type": "snack"
+  },
+  {
+    "name": "Mozzarella (low fat)",
+    "calories_per_100g": 254,
+    "protein": 22,
+    "carbs": 2.2,
+    "fats": 17,
+    "type": "dinner"
+  }
+]

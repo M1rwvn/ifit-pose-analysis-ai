@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IFIT | AI Fitness</title>
+  <style>
+    @font-face {
+      font-family: popin;
+      src: url(Poppins-Medium.ttf);
+    }
+    @font-face {
+      font-family: popin2;
+      src: url(Poppins-Bold.ttf);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'popin', sans-serif;
+    }
+
+    @keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-slide {
+  animation: fadeSlideUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #000000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 a {
+      color: #b4ff00;
+      font-size: 2rem;
+      text-decoration: none;
+      font-family: popin2;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #b4ff00;
+      font-weight: bold;
+      font-family: popin;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffffff;
+      background-color: #222;
+      transform: scale(1.05);
+      font-family: popin2;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero-content {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-content img {
+      width: 400px;
+      border-radius: 16px;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #b4ff00;
+      font-family: popin2;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    section {
+      background-color: #0f0f0f;
+      padding: 6rem 2rem;
+    }
+
+    section h2 {
+      color: #b4ff00;
+      text-align: center;
+      margin-bottom: 4rem;
+      font-size: 45px;
+      font-family: popin2;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #141414;
+      padding: 3rem;
+      border-radius: 20px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(180, 255, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px #b4ff00;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin: auto;
+      border-radius: 50%;
+      background-color: #111;
+      padding: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 15px #1a1a1a;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .card p {
+      margin-top: 0.5rem;
+      color: #aaa;
+    }
+
+    .card button {
+      margin-top: 1rem;
+      background-color: #b4ff00;
+      color: #000;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #b4ff00, 0 0 20px #b4ff00;
+    }
+
+    .card button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ccff33, 0 0 25px #ccff33;
+    }
+
+    footer {
+      background-color: #0f0f0f;
+      padding: 2rem;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    footer p {
+      color: #b4ff00;
+      font-weight: bold;
+    }
+
+    footer p + p {
+      margin-top: 0.5rem;
+      color: #aaa;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1><a href="web1.html">IFIT</a></h1>
+    <ul>
+      <li><a href="http://127.0.0.1:5005">Meals Generator & Calories Calculator</a></li>
+      <li><a href="#">Exercises</a></li>
+      <li><a href="http://127.0.0.1:5002">AI Exercise Form Correction</a></li>
+      <li><a href="BioAge.html">Biological Age</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <img src="image-removebg-preview (13) (1).png" alt="3D Fitness Model" />
+      <div class="hero-text">
+        <h2>WELCOME TO IFIT</h2>
+        <p>
+          Step into the future of fitness — unlock your true strength with AI-crafted workouts, smart nutrition, and powerful insights tailored just for you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>WHAT WE OFFER!</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="dumbbell.png" alt="AI Training Icon" />
+        <h3>Calculate your Biological Age</h3>
+        <p>Click here and get the chance to know your approximately Biological Age.</p>
+        <a href="BioAge.html"><button>Calculate</button></a>
+      </div>
+
+      <div class="card">
+        <img src="exercise.png" alt="Training Icon" />
+        <h3>Recorded TRAINING PLANS</h3>
+        <p>Workouts Tailored To Your Goals For Optimal Results</p>
+        <button>Start Plan</button>
+      </div>
+
+      <div class="card">
+        <img src="healthy-food.png" alt="Meal Plan Icon" />
+        <h3>SMART MEAL PLANS</h3>
+        <p>Calculate your calories and get personalized nutrition tailored to your lifestyle and goals.</p>
+        <button>Set Meal</button>
+      </div>
+
+      <div class="card">
+        <img src="exercise (1).png" alt="Form Correction Icon" />
+        <h3>AI Form correction</h3>
+        <p>Enjoy a form correction while training at home or gym.</p>
+        <button>Track Goals</button>
+      </div>
+
+      <div class="card">
+        <img src="exercise (1).png" alt="Form Correction Icon" />
+        <h3>AI Exercise Counter</h3>
+        <p>Just focus on your pose and let the app remember your reps</p>
+        <button>START COUNTING!</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>IFIT © 2025</p>
+    <p>Contact: support@ifit.com | Instagram: @ifit.ai</p>
+  </footer>
+</body>
+</html>
