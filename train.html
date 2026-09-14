@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IFIT - AI Exercise Counter</title>
+  <style>
+    @font-face {
+      font-family: 'popin';
+      src: url('Poppins-Medium.ttf');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'popin', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #f8f8f8;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #202020;
+      width: 100%;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(168, 223, 1, 0.2);
+      margin-bottom: 30px;
+    }
+
+    nav h1 a {
+      color: #a8df01;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #f8f8f8;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #a8df01;
+      color: #000;
+    }
+
+    h1.main {
+      font-size: 2.5rem;
+      color: #a8df01;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: #a8df01;
+      margin-bottom: 30px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #a8df01;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(168, 223, 1, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b7ff00;
+      transform: scale(1.05);
+    }
+
+    .videoC {
+      width: 90%;
+      max-width: 900px;
+      border: 4px solid #a8df01;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(168, 223, 1, 0.3);
+      margin-bottom: 30px;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #a8df01;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1><a href="web1.html">IFIT</a></h1>
+    <ul>
+      <li><a href="http://127.0.0.1:5000">Meals & Calories</a></li>
+      <li><a href="#">Exercises</a></li>
+      <li><a href="http://127.0.0.1:5002">Form Correction</a></li>
+      <li><a href="BioAge.html">Biological Age</a></li>
+    </ul>
+  </nav>
+
+  <h1 class="main">AI Exercise Counter</h1>
+  <h3>The Evolution of Fitness </h3>
+
+  <div class="button-group">
+    <button onclick="setMode('normal')">Single Arm</button>
+    <button onclick="setMode('combine')">Combined Arms</button>
+    <button onclick="setMode('pushup')">Push-up</button>
+    <button onclick="resetCounters()">Reset Counters</button>
+  </div>
+
+  <img class="videoC" src="{{ url_for('video') }}" />
+
+  <footer>&copy; 2025 IFIT - Snake Chaos House Club, New Mansoura University</footer>
+
+  <script>
+    function setMode(mode) {
+      fetch(`/set_mode/${mode}`);
+    }
+
+    function resetCounters() {
+      fetch('/reset');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Meal Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .form-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 50px;
+        }
+        h2 {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background: #2E86C1;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #1A5276;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 form-section">
+                <h2 class="text-center mb-4">🎯 Personal Info</h2>
+                <form id="mealForm">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" name="age" required>
+                        </div>
+                        <div class="col">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-control" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="height" class="form-label">Height (cm)</label>
+                            <input type="number" class="form-control" name="height" required>
+                        </div>
+                        <div class="col">
+                            <label for="weight" class="form-label">Weight (kg)</label>
+                            <input type="number" class="form-control" name="weight" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="activity" class="form-label">Activity Level</label>
+                        <select class="form-control" name="activity" required>
+                            <option value="1.2">Sedentary (little to no exercise)</option>
+                            <option value="1.375">Lightly active (1-3 days/week)</option>
+                            <option value="1.55">Moderately active (3-5 days/week)</option>
+                            <option value="1.725">Very active (6-7 days/week)</option>
+                            <option value="1.9">Super active (twice daily training)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="goal" class="form-label">Your Goal</label>
+                        <select class="form-control" name="goal" required>
+                            <option value="lose">Lose Weight</option>
+                            <option value="maintain">Maintain Weight</option>
+                            <option value="gain">Gain Muscle</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="meals_count" class="form-label">Number of Meals</label>
+                        <select class="form-control" name="meals_count" id="meals_count" required>
+                            <option value="3">3 Meals (Breakfast, Lunch, Dinner)</option>
+                            <option value="4">4 Meals (incl. Snack)</option>
+                            <option value="5">5 Meals (incl. 2 Snacks)</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Generate Meal Plan 🚀</button>
+                    </div>
+                </form>
+                <div id="result" class="mt-5"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById("mealForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            age: form.age.value,
+            gender: form.gender.value,
+            height: form.height.value,
+            weight: form.weight.value,
+            activity: form.activity.value,
+            goal: form.goal.value,
+            meals_count: form.meals_count.value
+        };
+
+        fetch("/generate", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            let html = `<h4 class="text-success">Your Plan 💪</h4>
+                        <p><strong>Calories:</strong> ${data.calories} kcal |
+                           <strong>Protein:</strong> ${data.protein}g |
+                           <strong>Carbs:</strong> ${data.carbs}g |
+                           <strong>Fat:</strong> ${data.fat}g</p>
+                        <h5>Meals 🍽</h5>`;
+            data.meals.forEach(m => {
+                html += `
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h6 class="card-title">${m.label}</h6>
+                    <p class="mb-1"><strong>${m.name}</strong></p>
+                    <small>
+                      Quantity: ${m.quantity_g} g<br>
+                      Calories: ${m.calories} kcal |
+                      Protein: ${m.protein}g |
+                      Carbs: ${m.carbs}g |
+                      Fat: ${m.fat}g
+                    </small>
+                  </div>
+                </div>`;
+            });
+            document.getElementById("result").innerHTML = html;
+        });
+    });
+    </script>
+</body>
+</html>
